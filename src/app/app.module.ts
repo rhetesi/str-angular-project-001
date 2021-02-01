@@ -7,8 +7,12 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { Cat01Component } from './page/cat01/cat01.component';
 import { Cat02Component } from './page/cat02/cat02.component';
 import { HomeComponent } from './page/home/home.component';
+<<<<<<< HEAD
 import { ListComponent } from './list/list.component';
 import { FilterPipe } from './pipe/filter.pipe';
+=======
+import { ProductScrollComponent } from './product-scroll/product-scroll.component';
+>>>>>>> dev
 
 @NgModule({
   declarations: [
@@ -17,8 +21,12 @@ import { FilterPipe } from './pipe/filter.pipe';
     Cat01Component,
     Cat02Component,
     HomeComponent,
+<<<<<<< HEAD
     ListComponent,
     FilterPipe
+=======
+    ProductScrollComponent
+>>>>>>> dev
   ],
   imports: [
     BrowserModule,
