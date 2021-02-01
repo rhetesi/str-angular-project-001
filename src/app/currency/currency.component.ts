@@ -1,28 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/service/product.service';
-import { Product } from 'src/app/model/product';
-import { CurrencyPipe } from '../currency.pipe';
-import { CurrencyComponent } from '../currency/currency.component';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+// import EventEmitter from 'events';
+import {CurrencyPipe} from 'src/app/currency.pipe'
 
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+  selector: 'app-currency',
+  templateUrl: './currency.component.html',
+  styleUrls: ['./currency.component.scss']
 })
-export class ProductCardComponent implements OnInit {
+export class CurrencyComponent implements OnInit {
 
-  @Input() product: any = new Product();
-  @Input() curr: CurrencyPipe = new CurrencyPipe();
-  // @Input() curr: CurrencyComponent = new CurrencyComponent();
-  constructor() { }
+  currencies = new CurrencyPipe();
   
+  // message: string = "Hello!"
+
+  @Output() messageEvent = new EventEmitter<string>();
   
-  currency:string;
-  
-  receiveCurrency($event) {
-    this.currency = $event
-    console.log('click:',this.currency);
+  constructor() {
+
+    console.log(this.currencies.currencies);
   }
+
+  onSelectCurrency(i:number): string {
+    const curr: string = this.currencies.currencies[i];
+    console.log(curr)
+    this.messageEvent.emit(curr)
+    return curr;
+  }
+
+  // sendMessage() {
+  // }
+
+  // @Output() curr: string;
 
   ngOnInit(): void {
   }
