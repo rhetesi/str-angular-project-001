@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/service/product.service';
 import { Product } from 'src/app/model/product';
-
-// import products from 'src/assets/products.json';
+import { CurrencyPipe } from '../currency.pipe';
 
 @Component({
   selector: 'app-product-card',
@@ -11,9 +10,10 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductCardComponent implements OnInit {
 
-  // List: any = products;
-  product: any = new Product();
-
+  @Input() product: any = new Product();
+  currency: CurrencyPipe = new CurrencyPipe();
+  constructor() { }
+  
   ngOnInit(): void {
   }
 

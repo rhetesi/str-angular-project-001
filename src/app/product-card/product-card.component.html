@@ -1,49 +1,17 @@
-<!-- <h4>Pénznem:</h4>
-<ul>
-    <li>Ft</li>
-    <li>EUR</li>
-    <li>USD</li>
-</ul> -->
-<!-- 
-<div class="container">
-    <div class="row d-flex flex-row">
-
-        <div class="card shadow m-4" *ngFor="let list of List">
-            <div class="img-container">
-                <img [src]="list.image" class="card-img-top" alt="...">
-            </div>
-            <div class="card-body">
-                <div class="title-container">
-                    <h5 class="card-title text-center font-weight-bold">{{list.name}}</h5>
-                </div>
-                <p class="card-text">{{list.description}}</p>
-            </div>
-            <h5 class="mt-auto text-center py-3 mb-0 text-primary font-italic">Szabad hely:
-                <strong>{{list.stock}}</strong></h5>
-            <div class="title-container">
-                <h5 class="price mt-auto text-center py-3 mb-0 text-white bg-primary font-weight-bold font-italic">
-                    {{list.price | currency}}</h5>
-            </div>
-        </div>
+<div class="card shadow my-4 col-12 mx-3 p-0">
+    <div class="img-container">
+        <img [src]="product.image" class="card-img-top" alt="...">
     </div>
-    
-</div> -->
-
-
-        <div class="card shadow m-4">
-            <div class="img-container">
-                <img [src]="product.image" class="card-img-top" alt="...">
-            </div>
-            <div class="card-body">
-                <div class="title-container">
-                    <h5 class="card-title text-center font-weight-bold">{{product.name}}</h5>
-                </div>
-                <p class="card-text">{{product.description}}</p>
-            </div>
-            <h5 class="mt-auto text-center py-3 mb-0 text-primary font-italic">Szabad hely:
-                <strong>{{product.stock}}</strong></h5>
-            <div class="title-container">
-                <h5 class="price mt-auto text-center py-3 mb-0 text-white bg-primary font-weight-bold font-italic">
-                    {{product.price | currency}}</h5>
-            </div>
+    <div class="card-body">
+        <div class="title-container">
+            <h5 class="card-title text-center font-weight-bold">{{product.name}}</h5>
         </div>
+        <p class="card-text">{{product.description}}</p>
+    </div>
+    <h5 class="mt-auto text-center py-3 mb-0 text-primary font-italic">Szabad hely:
+        <strong>{{product.stock}}</strong></h5>
+    <div class="title-container">
+        <h5 class="price mt-auto text-center py-3 mb-0 text-white bg-primary font-weight-bold font-italic ">
+            {{product.price | currency}}</h5>
+        </div>
+</div>
