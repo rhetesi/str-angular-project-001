@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { Cat01Component } from './page/cat01/cat01.component';
 import { Cat02Component } from './page/cat02/cat02.component';
+// import { Cat04Component } from './page/cat04/cat04.component';
 import { HomeComponent } from './page/home/home.component';
 import { ProductScrollComponent } from './product-scroll/product-scroll.component';
 
