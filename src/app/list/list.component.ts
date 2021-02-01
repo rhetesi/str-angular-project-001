@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/service/product.service';
-import { ProductCard } from 'src/app/product-card/product-card.component';
+//import { ProductCard } from 'src/app/product-card/product-card.component';
 
 /**
  * teszteléshez direkt import, amit maj ki kell venni a végleges kódból
  */
-import products from 'src/assets/products.json';
+//import products from 'src/assets/products.json';
 
 @Component({
   selector: 'app-list',
@@ -13,8 +13,25 @@ import products from 'src/assets/products.json';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  List: any = products; // Tömb kell!!!
+
+  @Input() phraseString: string = '';
+
+  //@Input() products: ProductCard[] = [];
+  //@Input() card: any = new ProductCard;
+  @Input() cards: any = new ProductService;
+  //List: any = products; // Tömb kell!!!
   constructor() { }
+
+  phrase: string = '';
+
+
+  topFiveFeaturedProducts: ProductService[] = this.cards.List;
+
+
+  onChangePrase(event: Event): void {
+    this.phrase = (event.target as HTMLInputElement).value;
+  }
+
 
   ngOnInit(): void {
   }
