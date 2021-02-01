@@ -1,53 +1,23 @@
 <p>product-scroll works!</p>
 
-<div href='page/cat01/cat01.component.html' class="btn btn-primary btn-lg font-weight-bold text-uppercase w-100 p-3" role="button">{{title[0]}}:</div>
-<div class="container m-0 p-0">
-    <div class="row">
+<div class="btn btn-primary btn-lg font-weight-bold text-uppercase w-100 p-3" role="button">{{title[0]}}:</div>
+
+<div class="container m-0 p-0 w-100">
+    <div class="row w-100">
         <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
-            <div class="card shadow my-4 col-xl-2 col-md-5 mx-3 p-0" *ngFor="let card of topFiveFeaturedProducts">
-                <div class="img-container">
-                    <img [src]="card.image" class="card-img-top" alt="...">
-                </div>
-                <div class="card-body px-0">
-                    <div class="title-container">
-                        <h5 class="card-title text-center font-weight-bold">{{card.name}}</h5>
-                    </div>
-                    <p class="card-text px-4">{{card.description}}</p>
-                </div>
-                <h5 class="mt-auto text-center py-3 mb-0 text-primary font-italic">Szabad hely:
-                    <strong>{{card.stock}}</strong>
-                </h5>
-                <div class="title-container">
-                    <h5 class="price mt-auto text-center py-3 mb-0 text-white bg-primary font-weight-bold font-italic">
-                        {{card.price | currency}}</h5>
-                </div>
-            </div>
+
+            <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="card" *ngFor="let card of topFiveFeaturedProducts"></app-product-card>
+ 
         </div>
     </div>
 </div>
+<div class="btn btn-danger btn-lg font-weight-bold text-uppercase w-100 mt-5 p-3" role="button">{{title[1]}}:</div>
 
-<div href='page/cat02/cat02.component.html' class="btn btn-primary btn-lg font-weight-bold text-uppercase w-100 p-3" role="button">{{title[0]}}:</div>
 <div class="container m-0 p-0">
     <div class="row">
         <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
-            <div class="card shadow my-4 col-xl-2 col-md-5 mx-3 p-0" *ngFor="let card of topFiveSaleProducts">
-                <div class="img-container">
-                    <img [src]="card.image" class="card-img-top" alt="...">
-                </div>
-                <div class="card-body px-0">
-                    <div class="title-container">
-                        <h5 class="card-title text-center font-weight-bold">{{card.name}}</h5>
-                    </div>
-                    <p class="card-text px-4">{{card.description}}</p>
-                </div>
-                <h5 class="mt-auto text-center py-3 mb-0 text-primary font-italic">Szabad hely:
-                    <strong>{{card.stock}}</strong>
-                </h5>
-                <div class="title-container">
-                    <h5 class="price mt-auto text-center py-3 mb-0 text-white bg-primary font-weight-bold font-italic">
-                        {{card.price | currency}}</h5>
-                </div>
-            </div>
+            <app-product-card class="col-xl-2 col-md-5 mx-3 p-0" [product]="card" *ngFor="let card of topFiveSaleProducts"></app-product-card>
+ 
         </div>
     </div>
 </div>
