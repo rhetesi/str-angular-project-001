@@ -8,9 +8,12 @@ import { Cat01Component } from './page/cat01/cat01.component';
 import { Cat02Component } from './page/cat02/cat02.component';
 // import { Cat04Component } from './page/cat04/cat04.component';
 import { HomeComponent } from './page/home/home.component';
+<<<<<<< HEAD
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CurrencyPipe } from './currency.pipe';
 import { CurrencyComponent } from './currency/currency.component';
+=======
+>>>>>>> 5af78e2e096498969c6ca4f9299eeae6a6b6b965
 import { ProductScrollComponent } from './product-scroll/product-scroll.component';
 
 @NgModule({
@@ -20,9 +23,12 @@ import { ProductScrollComponent } from './product-scroll/product-scroll.componen
     Cat01Component,
     Cat02Component,
     HomeComponent,
+<<<<<<< HEAD
     ProductCardComponent,
     CurrencyPipe,
     CurrencyComponent,
+=======
+>>>>>>> 5af78e2e096498969c6ca4f9299eeae6a6b6b965
     ProductScrollComponent
   ],
   imports: [
