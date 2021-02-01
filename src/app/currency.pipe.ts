@@ -8,7 +8,7 @@ export class CurrencyPipe implements PipeTransform {
 
   currencies: string[] = ['Ft', 'USD', 'EUR'];
 
-  @Input() curr: string = 'USD'
+  @Input() curr: string = 'Ft'
 
 
   // curr: string = this.receiveCurrency();
