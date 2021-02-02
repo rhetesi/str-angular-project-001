@@ -34,8 +34,8 @@
   <div class="row w-100">
     <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
 
-      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="card"
-        *ngFor="let card of products | filter:phraseString:'name'">
+      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [productService]="products" [product]="card"
+        *ngFor="let card of products | filter:phrase:'name'">
       </app-product-card>
 
     </div>

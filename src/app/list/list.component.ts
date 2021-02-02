@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/service/product.service';
+import { FilterPipe } from '../pipe/filter.pipe';
 //import { ProductCard } from 'src/app/product-card/product-card.component';
 
 /**
@@ -14,8 +15,9 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ListComponent implements OnInit {
 
-  @Input() phraseString: string = '';
+  //@Input() phraseString: string = ''; <- ez nem is kell, de nem tudom, hogy miért nem kell
   @Input() cards: any = new ProductService();
+  filter: FilterPipe = new FilterPipe();
 
   constructor() { }
 

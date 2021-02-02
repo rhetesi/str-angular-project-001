@@ -17,21 +17,21 @@ export class CurrencyPipe implements PipeTransform {
     if (curr === this.currencies[0]) {
       return `${value} ${this.curr}`;
     } else if ((curr === this.currencies[1])) {
-      console.log('transform:', this.curr);
-      return `${this.curr} ${Math.round(value/295.87*100)/100}`
+      // console.log('transform:', this.curr);
+      return `${this.curr} ${Math.round(value / 295.87 * 100) / 100}`
     }
-    return `${this.curr} ${Math.round(value/358.51*100)/100}`;
+    return `${this.curr} ${Math.round(value / 358.51 * 100) / 100}`;
   }
 
   @Output() receiveCurrency($event) {
-    console.log('click:', this.curr);
+    //console.log('click:', this.curr);
     this.curr = $event;
     return this.curr;
   }
-  
+
   constructor() {
-    console.log(this.curr);
+    //console.log(this.curr);
   }
 
-  
+
 }
