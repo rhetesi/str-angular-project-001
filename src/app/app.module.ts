@@ -12,6 +12,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { CurrencyPipe } from './currency.pipe';
 import { CurrencyComponent } from './currency/currency.component';
 import { ProductScrollComponent } from './product-scroll/product-scroll.component';
+import { ProductCategory1Component } from './product-category1/product-category1.component';
+import { ProductCategory2Component } from './product-category2/product-category2.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ProductScrollComponent } from './product-scroll/product-scroll.componen
     ProductCardComponent,
     CurrencyPipe,
     CurrencyComponent,
-    ProductScrollComponent
+    ProductScrollComponent,
+    ProductCategory1Component,
+    ProductCategory2Component
   ],
   imports: [
     BrowserModule,
