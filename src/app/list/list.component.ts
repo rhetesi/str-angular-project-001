@@ -28,7 +28,7 @@ export class ListComponent implements OnInit {
   products: ProductService[] = this.cards.List;
 
 
-  onChangePrase(event: Event): void {
+  onChangePhrase(event: Event): void {
     this.phrase = (event.target as HTMLInputElement).value;
   }
 
