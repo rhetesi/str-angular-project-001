@@ -3,21 +3,23 @@
 <div class="btn btn-primary btn-lg font-weight-bold text-uppercase w-100 p-3" role="button">{{title[0]}}:</div>
 
 <div class="container m-0 p-0 w-100">
-    <div class="row w-100">
-        <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
+  <div class="row w-100">
+    <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
 
-            <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="card" *ngFor="let card of topFiveFeaturedProducts"></app-product-card>
- 
-        </div>
+      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="card"
+        *ngFor="let card of topFiveFeaturedProducts"></app-product-card>
+
     </div>
+  </div>
 </div>
 <div class="btn btn-danger btn-lg font-weight-bold text-uppercase w-100 mt-5 p-3" role="button">{{title[1]}}:</div>
 
 <div class="container m-0 p-0">
-    <div class="row">
-        <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
-            <app-product-card class="col-xl-2 col-md-5 mx-3 p-0" [product]="card" *ngFor="let card of topFiveSaleProducts"></app-product-card>
- 
-        </div>
+  <div class="row">
+    <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
+      <app-product-card class="col-xl-2 col-md-5 mx-3 p-0" [product]="card" *ngFor="let card of topFiveSaleProducts">
+      </app-product-card>
+
     </div>
+  </div>
 </div>
