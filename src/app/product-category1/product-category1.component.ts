@@ -7,7 +7,7 @@ import { ProductScrollComponent } from '../product-scroll/product-scroll.compone
   styleUrls: ['./product-category1.component.scss']
 })
 export class ProductCategory1Component implements OnInit {
-  title: string[] = ['Kirándulás - kiemelt ajánlataink', 'Kirándulás - összes ajánlatunk'];
+  title: string[] = ['Kirándulások - kiemelt ajánlataink', 'Kirándulások - összes ajánlatunk'];
   product: any = new ProductScrollComponent();
   activeRest: any = this.product.cards.List.filter(item => item.catid === 1 );
   constructor() { 
