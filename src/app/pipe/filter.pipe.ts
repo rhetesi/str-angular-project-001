@@ -18,7 +18,7 @@ export class FilterPipe implements PipeTransform {
       return value;
     }
 
-    phrase = phrase.toLocaleLowerCase();
+    phrase = ('' + phrase).toLocaleLowerCase();
     return value.filter(item => {
       const strItem: string = ('' + item[key]).toLocaleLowerCase();
       strItem.includes(phrase);
