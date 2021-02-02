@@ -18,14 +18,14 @@ export class ListComponent implements OnInit {
 
   //@Input() products: ProductCard[] = [];
   //@Input() card: any = new ProductCard;
-  @Input() cards: any = new ProductService;
+  @Input() cards: any = new ProductService();
   //List: any = products; // Tömb kell!!!
   constructor() { }
 
   phrase: string = '';
 
 
-  topFiveFeaturedProducts: ProductService[] = this.cards.List;
+  products: ProductService[] = this.cards.List;
 
 
   onChangePrase(event: Event): void {
