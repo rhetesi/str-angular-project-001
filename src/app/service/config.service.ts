@@ -17,6 +17,7 @@ export class ConfigService {
     { text: 'Főoldal', link: '/', icon: 'home' },
     { text: 'Kirándulások', link: '/cat01' },
     { text: 'Fürdőlátogatás', link: '/cat02' },
+    { text: 'Admin', link: '/admin' },
   ];
 
   constructor() { }

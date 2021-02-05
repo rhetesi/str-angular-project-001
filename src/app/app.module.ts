@@ -16,6 +16,7 @@ import { CurrencyComponent } from './currency/currency.component';
 import { ProductScrollComponent } from './product-scroll/product-scroll.component';
 import { ProductCategory1Component } from './product-category1/product-category1.component';
 import { ProductCategory2Component } from './product-category2/product-category2.component';
+import { AdminComponent } from './page/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductCategory2Component } from './product-category2/product-category2
     CurrencyComponent,
     ProductScrollComponent,
     ProductCategory1Component,
-    ProductCategory2Component
+    ProductCategory2Component,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
