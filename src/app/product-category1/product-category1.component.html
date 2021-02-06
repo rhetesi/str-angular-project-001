@@ -4,8 +4,12 @@
   <div class="row w-100">
     <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
 
-      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="card"
-        *ngFor="let card of topFiveFeaturedProducts"></app-product-card>
+      <app-product-card class="col-xl-2 col-md-5 mx-3 p-0" [product]="product"
+      *ngFor="let product of productList$ | async | category:1 | featured | slice:0:5">
+    </app-product-card>
+
+      <!-- <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="card"
+        *ngFor="let card of topFiveFeaturedProducts"></app-product-card> -->
 
     </div>
   </div>
@@ -19,27 +23,14 @@
   <div class="row w-100">
     <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
 
-      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [productService]="products" [product]="card"
+      <app-product-card class="col-xl-2 col-md-5 mx-3 p-0" [product]="product"
+        *ngFor="let product of productList$ | async | category:1 | filter:phrase:'name'">
+      </app-product-card>
+
+      <!-- <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [productService]="products" [product]="card"
         *ngFor="let card of activeRest | filter:phrase:'name'">
-      </app-product-card>
+      </app-product-card> -->
 
     </div>
   </div>
 </div>
-
-<!-- ----- Ez lett bemásolva ----- -->
-<!-- <div class="btn btn-success btn-lg font-weight-bold text-uppercase w-100 p-3" role="button">Keresés ajánlataink között:
-  <input (keyup)="onChangePhrase($event)" class="mx-2 filter-search" type="text" placeholder="Keresés">
-</div>
-
-<div class="container m-0 p-0 w-100">
-  <div class="row w-100">
-    <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
-
-      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [productService]="products" [product]="card"
-        *ngFor="let card of products | filter:phrase:'name'">
-      </app-product-card>
-
-    </div>
-  </div>
-</div> -->

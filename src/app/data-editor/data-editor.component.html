@@ -1,0 +1,48 @@
+<div class="search btn btn-light btn-lg font-weight-bold text-uppercase w-100 p-3 mt-5" role="button">Keresés az üdülőhely neve alapján:
+  <input (keyup)="onChangePhrase($event)" class="mx-3 filter-search" type="text" placeholder="Keresés">
+</div>
+
+<table class="table table-striped text-center text-uppercase table-primary border border-primary">
+  <thead class="bg-primary text-white">
+    <tr>
+      <th *ngFor="let col of cols">{{ col.text }}</th>
+            <th></th>
+    </tr>
+  </thead>
+
+  <tbody class="">
+    <tr *ngFor="let product of productList$ | async | filter:phrase:'name'">
+      <td *ngFor="let col of cols">
+        <input *ngIf="col.editable && col.text != cols[1].text && col.text != cols[6].text && col.text != cols[7].text" [(ngModel)]="product[col.key]" type="text" class="form-control">
+        <p class="mt-1" *ngIf="!col.editable">{{ product[col.key] }}</p>
+        <div class="input-group" *ngIf="col.text == cols[1].text">
+          <select class="custom-select">
+            <option selected>{{ category[product[col.key]-1]}}</option>
+            <option class="table-warning" value="1">{{ category[0]}}</option>
+            <option class="table-warning" value="2">{{ category[1]}}</option>
+          </select>
+        </div>
+        <div class="input-group-text d-flex justify-content-center border-primary"  *ngIf="col.text == cols[6].text ">
+          <input class="border border-primary" type="checkbox" [(ngModel)]="product[col.key]" aria-label="Checkbox for following text input">
+        </div>
+        <div class="input-group-text d-flex justify-content-center border-danger" *ngIf="col.text == cols[7].text ">
+          <input type="checkbox" [(ngModel)]="product[col.key]" aria-label="Checkbox for following text input">
+        </div>
+      </td>
+
+      <td>
+          <div class="btn-group border border-light" role="group" aria-label="Basic example">
+            <button class="btn btn-info">
+              <i class="fa fa-eye"></i>
+            </button>
+            <button class="btn btn-secondary">
+              <i class="fa fa-refresh" (click)="onUpdate(product)"></i>
+            </button>
+            <button class="btn btn-danger" (click)="onDelete(product)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -17,6 +17,11 @@ import { ProductScrollComponent } from './product-scroll/product-scroll.componen
 import { ProductCategory1Component } from './product-category1/product-category1.component';
 import { ProductCategory2Component } from './product-category2/product-category2.component';
 import { AdminComponent } from './page/admin/admin.component';
+import { DataEditorComponent } from './data-editor/data-editor.component';
+import { CategoryPipe } from './pipe/category.pipe';
+import { FeaturedPipe } from './pipe/featured.pipe';
+import { RandomizePipe } from './pipe/randomize.pipe';
+import { SalePipe } from './pipe/sale.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { AdminComponent } from './page/admin/admin.component';
     ProductScrollComponent,
     ProductCategory1Component,
     ProductCategory2Component,
-    AdminComponent
+    AdminComponent,
+    DataEditorComponent,
+    CategoryPipe,
+    FeaturedPipe,
+    RandomizePipe,
+    SalePipe
   ],
   imports: [
     BrowserModule,
