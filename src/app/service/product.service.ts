@@ -39,9 +39,13 @@ export class ProductService {
   }
 
   //update
-
+  update(product: Product): Observable<Product> {
+    return this.http.patch<Product>(`${this.apiUrl}/${product.id}`, Product);
+  }
 
 
   //remove
-
+  remove(product: Product): Observable<Product> {
+    return this.http.delete<Product>(`${this.apiUrl}/${product.id}`);
+  }
 }

@@ -22,6 +22,7 @@ import { CategoryPipe } from './pipe/category.pipe';
 import { FeaturedPipe } from './pipe/featured.pipe';
 import { RandomizePipe } from './pipe/randomize.pipe';
 import { SalePipe } from './pipe/sale.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SalePipe } from './pipe/sale.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
