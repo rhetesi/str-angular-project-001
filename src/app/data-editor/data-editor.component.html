@@ -13,7 +13,7 @@
   <tbody class="">
     <tr *ngFor="let product of productList$ | async | filter:phrase:'name'">
       <td *ngFor="let col of cols">
-        <input *ngIf="col.editable && col.text != cols[1].text && col.text != cols[6].text && col.text != cols[7].text" [(ngModel)]="product[col.key]" type="text" class="form-control">
+        <input *ngIf="col.editable && col.text != cols[1].text && col.text != cols[7].text && col.text != cols[8].text" [(ngModel)]="product[col.key]" type="text" class="form-control">
         <p class="mt-1" *ngIf="!col.editable">{{ product[col.key] }}</p>
         <div class="input-group" *ngIf="col.text == cols[1].text">
           <select class="custom-select">
@@ -22,10 +22,10 @@
             <option class="table-warning" value="2">{{ category[1]}}</option>
           </select>
         </div>
-        <div class="input-group-text d-flex justify-content-center border-primary"  *ngIf="col.text == cols[6].text ">
+        <div class="input-group-text d-flex justify-content-center border-primary"  *ngIf="col.text == cols[7].text ">
           <input class="border border-primary" type="checkbox" [(ngModel)]="product[col.key]" aria-label="Checkbox for following text input">
         </div>
-        <div class="input-group-text d-flex justify-content-center border-danger" *ngIf="col.text == cols[7].text ">
+        <div class="input-group-text d-flex justify-content-center border-danger" *ngIf="col.text == cols[8].text ">
           <input type="checkbox" [(ngModel)]="product[col.key]" aria-label="Checkbox for following text input">
         </div>
       </td>

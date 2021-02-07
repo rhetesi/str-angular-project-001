@@ -33,9 +33,11 @@
 <div class="container m-0 p-0 w-100">
   <div class="row w-100">
     <div class="col-12 d-flex flex-row flex-wrap justify-content-center">
-
-      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [productService]="products" [product]="card"
-        *ngFor="let card of products | filter:phrase:'name'">
+      <!-- <app-product-card class="col-xl-2 col-md-5 mx-3 p-0" [product]="product"
+      *ngFor="let product of productList$ | async | randomize | sale | slice:0:5">
+    </app-product-card> -->
+      <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="product"
+        *ngFor="let product of productList$ | async | filter:phrase:'name'">
       </app-product-card>
 
     </div>

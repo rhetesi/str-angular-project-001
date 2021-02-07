@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../model/product';
 import { FilterPipe } from '../pipe/filter.pipe';
 import { ProdtableService } from '../service/prodtable.service';
-import { ITableCol } from '../service/prodtable.service';
+import { IProdTableCol } from '../service/prodtable.service';
 import { ProductService } from '../service/product.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { ProductService } from '../service/product.service';
 export class DataEditorComponent implements OnInit {
 
   productList$: Observable<Product[]> = this.productService.getAll();
-  cols: ITableCol[] = this.edit.tableCols;
+  cols: IProdTableCol[] = this.edit.prodTableCols;
   filter: FilterPipe = new FilterPipe();
   phrase: string = '';
   category: string[] = ['Kirándulások', 'Fürdőlátogatás'];
