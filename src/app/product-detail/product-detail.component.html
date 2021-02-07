@@ -1,5 +1,8 @@
 <div class="card product-card mt-5" *ngIf="product.id > 0">
-  <h4 class="card-header text-center font-weight-bold text-uppercase">A kiválasztott üdülőhely adatai</h4>
+<div class="card-header d-flex flex-column">
+  <a href="/admin" class="close text-right mb-2">X</a>
+  <h4 class="text-center font-weight-bold text-uppercase">A kiválasztott üdülőhely adatai</h4>
+</div>
   <div class="card-body">
     <p>Sorszám: {{ product.id }}</p>
     <p>Kategória: {{ category[product['catid']-1]}} </p>
