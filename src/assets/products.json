@@ -1,3 +1,5 @@
+{
+    "products":
 [{"id":1,"catid":2,"name":"Agárd","description":"Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.","image":"./assets/img/agard.jpg","price":17574,"stock":30,"featured":true,"active":true},
     {"id":2,"catid":1,"name":"Aggtelek","description":"Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.","image":"./assets/img/aggtelek.jpg","price":12548,"stock":18,"featured":false,"active":false},
     {"id":3,"catid":2,"name":"Békéscsaba","description":"Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.","image":"./assets/img/bekescsaba.jpg","price":8095,"stock":26,"featured":false,"active":true},
@@ -48,3 +50,4 @@
     {"id":48,"catid":1,"name":"Túristvándi","description":"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique.","image":"./assets/img/turistvandi.jpg","price":16316,"stock":41,"featured":true,"active":true},
     {"id":49,"catid":1,"name":"Veszprém","description":"Duis at velit eu est congue elementum. In hac habitasse platea dictumst.","image":"./assets/img/veszprem.jpg","price":16344,"stock":5,"featured":true,"active":false},
     {"id":50,"catid":1,"name":"Villány","description":"Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.","image":"./assets/img/villany.jpg","price":7787,"stock":32,"featured":true,"active":true}]
+}

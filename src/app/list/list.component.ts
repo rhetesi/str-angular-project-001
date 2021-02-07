@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/service/product.service';
+import { Product } from '../model/product';
 import { FilterPipe } from '../pipe/filter.pipe';
 //import { ProductCard } from 'src/app/product-card/product-card.component';
 
@@ -16,13 +18,15 @@ import { FilterPipe } from '../pipe/filter.pipe';
 export class ListComponent implements OnInit {
 
   //@Input() phraseString: string = ''; <- ez nem is kell, de nem tudom, hogy miért nem kell
-  @Input() cards: any = new ProductService();
+  productList$: Observable<Product[]> = this.productService.getAll();
   filter: FilterPipe = new FilterPipe();
 
-  constructor() { }
+  constructor(
+    private productService: ProductService,
+  ) { }
 
   phrase: string = '';
-  products: ProductService[] = this.cards.List;
+  // products: ProductService[] = this.cards.List;
 
   onChangePhrase(event: Event): void {
     this.phrase = (event.target as HTMLInputElement).value;

@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+}
+
+.search {
+  position: sticky;
+  top: 3rem;
+  z-index: 999;
+}
+
+.detail {
+  position: fixed;
+  right: 0rem;
+}
