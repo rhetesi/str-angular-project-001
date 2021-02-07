@@ -24,7 +24,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   // add apiUrl
-  apiUrl: string = 'http://localhhost:3000/products';
+  apiUrl: string = 'http://localhost:3000/products';
 
   //List: any = products;
 

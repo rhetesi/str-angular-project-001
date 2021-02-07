@@ -13,14 +13,14 @@ export class ProdtableService {
 
   prodTableCols: IProdTableCol[] = [
     {key: 'id', text: '#', editable: false},
-    {key: 'catId', text: 'Kategória ID', editable: true},
+    {key: 'catId', text: 'Kategória', editable: true},
     {key: 'name', text: 'Név', editable: true},
-    {key: 'description', text: 'Leírás', editable: false},
+    {key: 'description', text: 'Leírás', editable: true},
     {key: 'image', text: 'Kép', editable: true},
-    {key: 'price', text: 'Ár', editable: true},
+    {key: 'price', text: 'Ár (Ft)', editable: true},
     {key: 'stock', text: 'Készlet', editable: true},
     {key: 'featured', text: 'Kiemelt', editable: true},
-    {key: 'active', text: 'Aktív?', editable: true},
+    {key: 'active', text: 'Akció', editable: true},
   ];
   constructor() { }
 }
