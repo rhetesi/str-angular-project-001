@@ -24,6 +24,7 @@ import { RandomizePipe } from './pipe/randomize.pipe';
 import { SalePipe } from './pipe/sale.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     CategoryPipe,
     FeaturedPipe,
     RandomizePipe,
-    SalePipe
+    SalePipe,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

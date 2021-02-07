@@ -18,11 +18,16 @@ export class DataEditorComponent implements OnInit {
   filter: FilterPipe = new FilterPipe();
   phrase: string = '';
   category: string[] = ['Kirándulások', 'Fürdőlátogatás'];
+  currentProduct: Product = new Product();
 
   constructor(
     private productService: ProductService,
     private edit: ProdtableService,
   ) { }
+
+  onSelect(product: any): void {
+    this.currentProduct = product;
+  }
 
   onUpdate(product: any): void {
     this.productService.update(product).subscribe(

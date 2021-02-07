@@ -1,0 +1,18 @@
+<div class="card product-card mt-5" *ngIf="product.id > 0">
+  <h4 class="card-header text-center font-weight-bold text-uppercase">A kiválasztott üdülőhely adatai</h4>
+  <div class="card-body">
+    <p>Sorszám: {{ product.id }}</p>
+    <p>Kategória: {{ category[product['catid']-1]}} </p>
+    <app-product-card class="" [product]="product">
+    </app-product-card>
+    <p class="text-center" *ngIf="product.featured">Kiemelt ajánlat</p>
+    <p class="text-center" *ngIf="!product.featured">Nem kiemelt ajánlat</p>
+    <p class="text-center" *ngIf="product.active">Akciós ajánlat</p>
+    <p class="text-center" *ngIf="!product.active">Nem akciós ajánlat</p>
+    <p>
+      <button (click)="onDelete(product)" class="btn btn-danger btn-block">
+        <i class="fa fa-trash"></i> delete
+      </button>
+    </p>
+  </div>
+</div>
