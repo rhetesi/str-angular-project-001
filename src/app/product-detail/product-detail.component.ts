@@ -16,6 +16,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private productService: ProductService,
     // private edit: ProdtableService,
+    //
   ) { }
 
   ngOnInit(): void {
