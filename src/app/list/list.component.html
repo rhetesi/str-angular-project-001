@@ -37,7 +37,7 @@
       *ngFor="let product of productList$ | async | randomize | sale | slice:0:5">
     </app-product-card> -->
       <app-product-card class="col-xl-2 col-md-4 mx-3 p-0" [product]="product"
-        *ngFor="let product of productList$ | async | filter:phrase:'name'">
+        *ngFor="let product of productList$ | async | filter1:phrase:'name'">
       </app-product-card>
 
     </div>

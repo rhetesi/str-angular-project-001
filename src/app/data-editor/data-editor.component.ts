@@ -25,7 +25,7 @@ export class DataEditorComponent implements OnInit {
   start: number = 0;
   end: number = this.start + this.rows;
   // groups: number[] = [];
-  groups: number[] = [1,2,3,4,5];
+  groups: number[] = [1,2,3,4,5,6];
   // groupNumber: any = this.productList$.subscribe(result => {console.log('length',result.length/this.rows)})
 
 
