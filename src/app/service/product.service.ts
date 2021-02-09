@@ -43,7 +43,7 @@ export class ProductService {
     return this.http.get<Product>(`${this.apiUrl}/${product.id}`);
   }
 
-//add
+  //add
   create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.apiUrl, product);
   }
