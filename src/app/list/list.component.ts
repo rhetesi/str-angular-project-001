@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/service/product.service';
 import { Product } from '../model/product';
-import { FilterPipe } from '../pipe/filter.pipe';
+import { Filter1Pipe } from '../pipe/filter1.pipe';
 //import { ProductCard } from 'src/app/product-card/product-card.component';
 
 /**
@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
 
   //@Input() phraseString: string = ''; <- ez nem is kell, de nem tudom, hogy miért nem kell
   productList$: Observable<Product[]> = this.productService.getAll();
-  filter: FilterPipe = new FilterPipe();
+  filter: Filter1Pipe = new Filter1Pipe();
 
   constructor(
     private productService: ProductService,

@@ -1,98 +1,129 @@
   <!-- <div class="container m-0"> -->
-<!-- {{(productList$ | async).length/rows}} -->
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-end mt-1 mr-4">
-    <li class="page-item disabled" *ngIf="(start+rows)/rows-1<=0">
-      <a class="page-link" tabindex="-1">Előző</a>
-    </li>
-    <li class="page-item" *ngIf="(start+rows)/rows-1>0">
-      <a class="page-link btn-primary" (click)="pager((start+rows)/rows-1)" tabindex="-1">Előző</a>
-    </li>
+  <!-- {{(productList$ | async).length/rows}} -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end mt-1 mr-3">
+      <li class="page-item disabled" *ngIf="(start+rows)/rows-1<=0">
+        <a class="page-link" tabindex="-1">
+          <i class="fa fa-angle-double-left"></i>
+        </a>
+      </li>
+      <li class="page-item" *ngIf="(start+rows)/rows-1>0">
+        <a class="page-link btn-primary" (click)="pager((start+rows)/rows-1)" tabindex="-1">
+          <i class="fa fa-angle-double-left"></i></a>
+      </li>
 
-    <!-- <li class="page-item" *ngFor="let group of (productList$ | async)?.length/rows"> -->
-    <li class="page-item" *ngFor="let group of groups">
-      <a class="page-link btn-primary" (click)="pager(group)">{{group}}</a>
-    </li>
+      <!-- <li class="page-item" *ngFor="let group of (productList$ | async | filter:filterKey:phrase)?.length/rows"> -->
+      <li class="page-item" *ngFor="let group of groups" [class.active]>
+        <a class="page-link btn-primary" (click)="pager(group)">{{group}}</a>
+      </li>
 
+      <li class="page-item disabled" *ngIf="(start+rows)/rows >= this.groups.length">
+        <a class="page-link">
+          <i class="fa fa-angle-double-right"></i>
+        </a>
+      </li>
+      <li class="page-item" *ngIf="(start+rows)/rows < this.groups.length">
+        <a class="page-link btn-primary" (click)="pager((start+rows)/rows+1)">
+          <i class="fa fa-angle-double-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-    <li class="page-item disabled" *ngIf="(start+rows)/rows >= this.groups.length">
-      <a class="page-link">Következő</a>
-    </li>
-    <li class="page-item" *ngIf="(start+rows)/rows < this.groups.length">
-      <a class="page-link btn-primary" (click)="pager((start+rows)/rows+1)">Következő</a>
-    </li>
-  </ul>
-</nav>
+  <div class="row">
+    <div class="col-10">
 
-<div class="row">
-  <div class="col-10">
+      <div class="search btn btn-light btn-lg border w-100 p-3 mt-5 d-flex flex-row" role="button">
+        <span class="font-weight-bold text-uppercase col-1 pt-1">Keresés:</span>
+        <select class="form-control col-3" [(ngModel)]="filterKey">
+          <option *ngFor="let key of filterKeys" [value]="[key]">{{key}}</option>
+          <!-- <option *ngFor="let key of filterKeys" [value]="[cols[filterKeys.indexOf(key)].text]">{{cols[filterKeys.indexOf(key)].text}}</option> -->
+        </select>
+        <input [(ngModel)]="phrase" class="mx-3 filter-search col-5" type="text" placeholder="Keresés">
+      </div>
 
-    <div class="search btn btn-light btn-lg border w-100 p-3 mt-5 d-flex flex-row" role="button">
-      <span class="font-weight-bold text-uppercase col-1 pt-1">Keresés:</span>
-      <select class="form-control col-3" [(ngModel)]="filterKey">
-        <option *ngFor="let key of filterKeys" [value]="[key]">{{key}}</option>
-        <!-- <option *ngFor="let key of filterKeys" [value]="[cols[filterKeys.indexOf(key)].text]">{{cols[filterKeys.indexOf(key)].text}}</option> -->
-      </select>
-      <input [(ngModel)]="phrase" class="mx-3 filter-search col-5" type="text" placeholder="Keresés">
+      <table class="table table-striped text-center text-uppercase table-primary border border-primary">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th *ngFor="let col of cols">{{ col.text }}</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody class="">
+          <tr>
+            <td *ngFor="let col of keys">
+              <input *ngIf="col != 'id' && col != 'catid' && col != 'featured' && col != 'active'"
+                [(ngModel)]="currentProduct[col]" type="text" class="form-control">
+              <div class="input-group" *ngIf="col === 'catid'">
+                <select class="custom-select" [(ngModel)]="currentProduct[col]">
+                  <option selected></option>
+                  <option class="table-warning" value=1>{{ category[0] }}</option>
+                  <option class="table-warning" value=2>{{ category[1] }}</option>
+                </select>
+              </div>
+              <div class="input-group-text d-flex justify-content-center border-primary" *ngIf="col === 'featured'">
+                <input class="border border-primary" type="checkbox" [(ngModel)]="currentProduct[col]"
+                  aria-label="Checkbox for following text input">
+              </div>
+              <div class="input-group-text d-flex justify-content-center border-danger" *ngIf="col === 'active'">
+                <input type="checkbox" [(ngModel)]="currentProduct[col]" aria-label="Checkbox for following text input">
+              </div>
+            </td>
+
+            <td>
+              <div class="btn-group border border-light" role="group" aria-label="Save new product">
+                <button class="btn btn-success" (click)="onCreate(currentProduct)">
+                  <i class="fa fa-floppy-o"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+
+          <tr *ngFor="let product of productList$ | async | filter:filterKey:phrase | slice:start:end">
+            <td *ngFor="let col of cols">
+              <input
+                *ngIf="col.editable && col.text != cols[1].text && col.text != cols[7].text && col.text != cols[8].text"
+                [(ngModel)]="product[col.key]" type="text" class="form-control">
+              <p class="mt-1" *ngIf="!col.editable">{{ product[col.key] }}</p>
+              <div class="input-group" *ngIf="col.text == cols[1].text">
+                <select class="custom-select">
+                  <option selected>{{ category[product[col.key]-1]}}</option>
+                  <option class="table-warning" value="1">{{ category[0]}}</option>
+                  <option class="table-warning" value="2">{{ category[1]}}</option>
+                </select>
+              </div>
+              <div class="input-group-text d-flex justify-content-center border-primary"
+                *ngIf="col.text == cols[7].text ">
+                <input class="border border-primary" type="checkbox" [(ngModel)]="product[col.key]"
+                  aria-label="Checkbox for following text input">
+              </div>
+              <div class="input-group-text d-flex justify-content-center border-danger"
+                *ngIf="col.text == cols[8].text ">
+                <input type="checkbox" [(ngModel)]="product[col.key]" aria-label="Checkbox for following text input">
+              </div>
+            </td>
+
+            <td>
+              <div class="btn-group border border-light" role="group" aria-label="Basic example">
+                <button class="btn btn-info " (click)="onSelect(product)">
+                  <i class="fa fa-eye"></i>
+                </button>
+                <button class="btn btn-secondary" (click)="onUpdate(product)">
+                  <i class="fa fa-refresh"></i>
+                </button>
+                <button class="btn btn-danger" (click)="onDelete(product)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <table class="table table-striped text-center text-uppercase table-primary border border-primary">
-      <thead class="bg-primary text-white">
-        <tr>
-          <th *ngFor="let col of cols">{{ col.text }}</th>
-          <th></th>
-        </tr>
-      </thead>
 
-
-
-      <tbody class="">
-        <tr *ngFor="let product of productList$ | async | filter:filterKey:phrase | slice:start:end">
-          <td *ngFor="let col of cols">
-            <input
-              *ngIf="col.editable && col.text != cols[1].text && col.text != cols[7].text && col.text != cols[8].text"
-              [(ngModel)]="product[col.key]" type="text" class="form-control">
-            <p class="mt-1" *ngIf="!col.editable">{{ product[col.key] }}</p>
-            <div class="input-group" *ngIf="col.text == cols[1].text">
-              <select class="custom-select">
-                <option selected>{{ category[product[col.key]-1]}}</option>
-                <option class="table-warning" value="1">{{ category[0]}}</option>
-                <option class="table-warning" value="2">{{ category[1]}}</option>
-              </select>
-            </div>
-            <div class="input-group-text d-flex justify-content-center border-primary"
-              *ngIf="col.text == cols[7].text ">
-              <input class="border border-primary" type="checkbox" [(ngModel)]="product[col.key]"
-                aria-label="Checkbox for following text input">
-            </div>
-            <div class="input-group-text d-flex justify-content-center border-danger"
-              *ngIf="col.text == cols[8].text ">
-              <input type="checkbox" [(ngModel)]="product[col.key]" aria-label="Checkbox for following text input">
-            </div>
-          </td>
-
-          <td>
-            <div class="btn-group border border-light" role="group" aria-label="Basic example">
-              <button class="btn btn-info " (click)="onSelect(product)">
-                <i class="fa fa-eye"></i>
-              </button>
-              <button class="btn btn-secondary" (click)="onUpdate(product)">
-                <i class="fa fa-refresh"></i>
-              </button>
-              <button class="btn btn-danger" (click)="onDelete(product)">
-                <i class="fa fa-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="detail col-2  mt-0">
+      <app-product-detail [product]="currentProduct" (delProduct)="onDelete($event)"></app-product-detail>
+    </div>
   </div>
-
-
-  <div class="detail col-2  mt-0">
-    <app-product-detail [product]="currentProduct" (delProduct)="onDelete($event)"></app-product-detail>
-  </div>
-</div>
-
-

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../model/product';
-import { FilterPipe } from '../pipe/filter.pipe';
+import { Filter1Pipe } from '../pipe/filter1.pipe';
 import { ProductScrollComponent } from '../product-scroll/product-scroll.component';
 import { ProductService } from '../service/product.service';
 
@@ -15,7 +15,7 @@ export class ProductCategory2Component implements OnInit {
   productList$: Observable<Product[]> = this.productService.getAll();
   // activeRest: any = this.product.cards.List.filter(item => item.catid === 2);
 
-  filter: FilterPipe = new FilterPipe();
+  filter: Filter1Pipe = new Filter1Pipe();
 
 
   phrase: string = '';

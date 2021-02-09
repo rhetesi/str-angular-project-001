@@ -25,8 +25,9 @@ export class DataEditorComponent implements OnInit {
   start: number = 0;
   end: number = this.start + this.rows;
   // groups: number[] = [];
-  groups: number[] = [1,2,3,4,5];
+  groups: number[] = [1,2,3,4,5,6];
   // groupNumber: any = this.productList$.subscribe(result => {console.log('length',result.length/this.rows)})
+keys: string[] = ['id', 'catid', 'name', 'description', "image", 'price', 'stock', 'featured', 'active'];
 
 
   // @Output() selectClick: EventEmitter<boolean> = new EventEmitter();
@@ -70,6 +71,17 @@ export class DataEditorComponent implements OnInit {
 
   onSelect(product: any): void {
     this.currentProduct = product;
+  }
+
+  onCreate(product: any): void {
+    if (product.catid === '1') {
+      product.catid = 1;
+    } else {
+      product.catid = 2;
+    }
+    this.productService.create(product).subscribe(
+      createProduct => console.log(createProduct)
+    )
   }
 
   onUpdate(product: any): void {
